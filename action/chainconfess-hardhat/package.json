@@ -1,0 +1,36 @@
+{
+  "name": "chainconfess-hardhat",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "hardhat compile",
+    "clean": "hardhat clean",
+    "test": "hardhat test",
+    "node": "hardhat node",
+    "deploy:localhost": "hardhat deploy --network localhost --tags ChainConfess",
+    "deploy:sepolia": "hardhat deploy --network sepolia --tags ChainConfess",
+    "typechain": "hardhat typechain",
+    "lint": "echo 'no lints configured'"
+  },
+  "devDependencies": {
+    "@fhevm/hardhat-plugin": "^0.1.0",
+    "@nomicfoundation/hardhat-chai-matchers": "^2.1.0",
+    "@nomicfoundation/hardhat-ethers": "^3.1.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.9",
+    "@typechain/hardhat": "^9.1.0",
+    "chai": "^4.5.0",
+    "hardhat": "^2.22.8",
+    "hardhat-deploy": "^0.12.4",
+    "hardhat-gas-reporter": "^2.0.2",
+    "solidity-coverage": "^0.8.13",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@fhevm/solidity": "^0.8.0",
+    "ethers": "^6.13.2"
+  }
+}
+
+
