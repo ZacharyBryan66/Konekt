@@ -1,0 +1,30 @@
+{
+  "name": "chainconfess-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev -p 5173",
+    "build": "next build",
+    "start": "next start -p 5173",
+    "lint": "next lint",
+    "genabi": "node scripts/genabi.mjs"
+  },
+  "dependencies": {
+    "next": "^15.0.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "ethers": "^6.13.2",
+    "@zama-fhe/relayer-sdk": "0.2.0",
+    "clsx": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.16.11",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.1",
+    "typescript": "^5.6.3",
+    "@fhevm/mock-utils": "0.1.0"
+  }
+}
+
+
