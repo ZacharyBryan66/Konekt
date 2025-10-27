@@ -24,7 +24,15 @@ export async function createFhevmInstance({ provider, chainId }: CreateParams): 
           KMSVerifierAddress: "0x1364cBBf2cDF5032C47d8226a6f6FBD2AFCDacAC",
         },
       });
-      return instance;
+      const adapted: FhevmInstance = {
+        ...((instance as unknown) as FhevmInstance),
+        // Adapter: unify to decryptPublic(contract, handle)
+        decryptPublic: async (_contract: string, handle: string) => {
+          const res = await (instance as any).publicDecrypt([handle]);
+          return res[handle];
+        },
+      };
+      return adapted;
     } catch {}
   }
 
@@ -37,7 +45,15 @@ export async function createFhevmInstance({ provider, chainId }: CreateParams): 
     relayerSDK.__initialized__ = true;
   }
   const config = { ...relayerSDK.SepoliaConfig, network: provider };
-  return await relayerSDK.createInstance(config);
+  const instance = await relayerSDK.createInstance(config);
+  const adapted: FhevmInstance = {
+    ...((instance as unknown) as FhevmInstance),
+    decryptPublic: async (_contract: string, handle: string) => {
+      const res = await (instance as any).publicDecrypt([handle]);
+      return res[handle];
+    },
+  };
+  return adapted;
 }
 
 
